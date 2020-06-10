@@ -15,7 +15,7 @@ function App() {
       <div className="App">
         <Header/>
         <Route exact path="/" component = {Home}/>
-        <Route path="/detalle" component = {Detalle}/>
+        <Route path="/detalle/:id" component = {Detalle}/>
         <Route path="/contacto" component = {Formulario}/>
         <Footer/>
       </div>
