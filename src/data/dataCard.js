@@ -1,31 +1,29 @@
-const ListCard = [
-    {
-        titulo: 'titulo 1',
-        descripcion: 'descripcion 1',
-        alt: 'alt 1',
-        href: 'url',
-        img: 'https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1589453919.32381247.png',
-        boton: 'detalle',
-        id: 1
-    },
-    {
-        titulo: 'titulo 2',
-        descripcion: 'descripcion 2',
-        alt: 'alt 2',
-        href: 'url 2',
-        img: 'https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1585134414.83551180.png',
-        boton: 'detalle 2',
-        id: 2
-    },
-    {
-        titulo: 'titulo 3',
-        descripcion: 'descripcion 3',
-        alt: 'alt 3',
-        href: 'url 3',
-        img: 'https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1585134404.36187772.png',
-        boton: 'detalle 3',
-        id: 3
-    }
-]
+function ResultListCard(result, listImg) {
+  let list = [];
+  result.forEach((element) => {
+    var img = listImg.find(imagen => ObtenerIdCategoriaApi(imagen.idarticulo) == element.id);
+    var item = {};
+    var i = "/img/NoImagen.jpg";
+    if (img) i = img.nombrefichero;
+    
+    item.titulo = element.titulo;
+    item.descripcion = element.descirpcion;
+    item.alt = element.titulo;
+    item.img = i;
+    item.id = element.id;
+    item.boton = "Detalle";
+    item.href = "/detalle/" + element.id;
 
-export default ListCard;
+    list.push(item);
+    
+  });
+  return list;
+}
+
+function ObtenerIdCategoriaApi(value){
+    return value.split("/")[3];
+}
+
+export default ResultListCard;
+
+

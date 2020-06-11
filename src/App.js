@@ -6,6 +6,7 @@ import Header from './component/header';
 import Home from './component/home';
 import Detalle from './component/detalle';
 import Formulario from './component/formulario';
+import Categoria from './component/categoria';
 import Footer from './component/footer';
 
 
@@ -16,6 +17,7 @@ function App() {
         <Header/>
         <Route exact path="/" component = {Home}/>
         <Route path="/detalle/:id" component = {Detalle}/>
+        <Route path="/categoria" component = {Categoria}/>
         <Route path="/contacto" component = {Formulario}/>
         <Footer/>
       </div>
